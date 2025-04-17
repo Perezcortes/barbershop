@@ -9,7 +9,7 @@ import AdminDashboard from './components/AdminDashboard';
 import Footer from './components/Footer';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState('login'); // <-- antes decía 'home'
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = () => {

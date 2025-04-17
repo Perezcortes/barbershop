@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AdminLogin = () => {
+const AdminLogin = ({ onLogin }) => {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -20,7 +20,12 @@ const AdminLogin = () => {
       return;
     }
     // Aquí iría la lógica de autenticación real
-    console.log('Iniciando sesión:', credentials);
+    if (credentials.email === 'admin@barbershop.com' && credentials.password === 'admin123') {
+      // Si el correo y contraseña son correctos, llamamos a la función onLogin
+      onLogin();
+    } else {
+      setError('Correo o contraseña incorrectos');
+    }
   };
 
   return (

@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import gallery1 from '../img/gallery1.jpg';
+import gallery2 from '../img/gallery1.jpg';
+import gallery3 from '../img/gallery1.jpg';
+import gallery4 from '../img/gallery1.jpg';
+import gallery5 from '../img/gallery1.jpg';
+import gallery6 from '../img/gallery1.jpg';
+import gallery7 from '../img/gallery1.jpg';
+import gallery8 from '../img/gallery1.jpg';
+
 
 const GallerySection = () => {
   const [activeCategory, setActiveCategory] = useState('todos');
@@ -11,15 +20,15 @@ const GallerySection = () => {
   ];
 
   const images = [
-    { id: 1, src: '/gallery1.jpg', category: 'cortes' },
-    { id: 2, src: '/gallery2.jpg', category: 'barbas' },
-    { id: 3, src: '/gallery3.jpg', category: 'afeitados' },
-    { id: 4, src: '/gallery4.jpg', category: 'cortes' },
-    { id: 5, src: '/gallery5.jpg', category: 'barbas' },
-    { id: 6, src: '/gallery6.jpg', category: 'afeitados' },
-    { id: 7, src: '/gallery7.jpg', category: 'cortes' },
-    { id: 8, src: '/gallery8.jpg', category: 'barbas' },
-  ];
+    { id: 1, src: gallery1, category: 'cortes' },
+    { id: 2, src: gallery1, category: 'barbas' },
+    { id: 3, src: gallery1, category: 'afeitados' },
+    { id: 4, src: gallery1, category: 'cortes' },
+    { id: 5, src: gallery1, category: 'barbas' },
+    { id: 6, src: gallery1, category: 'afeitados' },
+    { id: 7, src: gallery1, category: 'cortes' },
+    { id: 8, src: gallery1, category: 'barbas' },
+  ];  
 
   const filteredImages = activeCategory === 'todos' 
     ? images 

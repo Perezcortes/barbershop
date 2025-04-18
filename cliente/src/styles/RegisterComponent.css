@@ -1,0 +1,166 @@
+/* Contenedor principal para centrar el contenido */
+.full-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #f3f4f6; /* Fondo limpio y agradable */
+    padding: 1.5rem; /* Espaciado para evitar bordes pegados en pantallas pequeñas */
+    box-sizing: border-box; /* Incluye padding y border en las dimensiones */
+}
+
+/* Configuración del formulario */
+.max-w-md {
+    max-width: 28rem; /* Anchura máxima del formulario */
+    width: 100%; /* Responsivo para ajustarse al contenedor */
+    background-color: white; /* Fondo blanco limpio */
+    border-radius: 1rem; /* Bordes redondeados */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 2rem; /* Espaciado interno */
+}
+
+/* Texto y títulos */
+.text-center {
+    text-align: center;
+}
+
+.text-3xl {
+    font-size: 1.875rem; /* Tamaño de texto grande */
+    font-weight: 800; /* Títulos resaltados */
+}
+
+.text-gray-900 {
+    color: #1f2937; /* Color gris oscuro */
+}
+
+.text-sm {
+    font-size: 0.875rem; /* Texto más pequeño */
+}
+
+.text-gray-600 {
+    color: #4b5563; /* Gris claro para subtítulos */
+}
+
+.text-red-600 {
+    color: #e11d48; /* Rojo vibrante */
+}
+
+.text-blue-600 {
+    color: #3b82f6; /* Azul vibrante */
+}
+
+/* Mensaje de éxito */
+.bg-green-50 {
+    background-color: #f0fdf4; /* Fondo verde claro */
+}
+
+.border-l-4 {
+    border-left-width: 4px; /* Grosor del borde izquierdo */
+}
+
+.border-green-500 {
+    border-color: #10b981; /* Color verde del borde */
+}
+
+.text-green-700 {
+    color: #064e3b; /* Verde oscuro */
+}
+
+/* Inputs del formulario */
+.input-group {
+    margin-bottom: 1.5rem; /* Espaciado entre inputs */
+}
+
+/* Configuración global para inputs en pantallas grandes */
+input {
+    width: 100%; /* Asegura que los inputs ocupen el ancho completo del contenedor */
+    margin: 0; /* Elimina márgenes inconsistentes */
+    padding: 0.75rem; /* Espaciado interno uniforme */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total del input */
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6; /* Color azul al enfocar */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Efecto de halo */
+}
+
+input::placeholder {
+    color: #9ca3af; /* Color del texto de marcador */
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #e11d48; /* Rojo vibrante */
+    font-size: 0.875rem; /* Texto pequeño */
+    margin-top: 0.25rem;
+}
+
+/* Botón principal */
+.button-container {
+    margin-top: 1.5rem; /* Espaciado superior del botón */
+}
+
+button {
+    width: 100%; /* Botón ocupa todo el ancho */
+    padding: 0.75rem;
+    background-color: #2563eb; /* Azul más oscuro */
+    color: white;
+    border-radius: 0.5rem; /* Bordes suaves */
+    font-size: 1rem; /* Tamaño del texto del botón */
+    font-weight: 600; /* Texto en negrita */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+button:hover {
+    background-color: #1e3a8a; /* Azul más oscuro al pasar el mouse */
+}
+
+button:disabled {
+    background-color: #9ca3af; /* Gris claro cuando está deshabilitado */
+    cursor: not-allowed;
+}
+
+/* Enlace para inicio de sesión */
+.footer-links {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.footer-links span {
+    font-size: 0.875rem;
+    color: #4b5563; /* Gris claro */
+}
+
+.footer-links button {
+    background: none;
+    border: none;
+    color: #3b82f6; /* Azul vibrante */
+    font-size: 0.875rem; /* Texto pequeño */
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.footer-links button:hover {
+    color: #2563eb; /* Azul oscuro al pasar el mouse */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .max-w-md {
+        max-width: 100%; /* Ancho completo en pantallas pequeñas */
+        padding: 1rem; /* Espaciado interno adecuado */
+    }
+
+    input {
+        width: 100%; /* Asegura que los inputs no excedan el ancho del contenedor */
+        box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+    }
+
+    .full-page-container {
+        padding: 1rem; /* Ajusta el espaciado para evitar bordes pegados */
+    }
+}
+

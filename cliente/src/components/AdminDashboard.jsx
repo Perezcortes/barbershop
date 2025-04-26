@@ -24,7 +24,7 @@ const AdminDashboard = () => {
       <div className="sidebar">
         <div className="logo-container">
           <div className="logo">
-            {!sidebarCollapsed && <h2>Barbería</h2>}
+            {!sidebarCollapsed && <h2>Pasión y Estilo</h2>}
             {sidebarCollapsed && <h2>B</h2>}
           </div>
           <button className="sidebar-toggle" onClick={toggleSidebar}>

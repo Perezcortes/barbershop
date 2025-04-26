@@ -5,6 +5,7 @@ import LoginComponent from './components/LoginComponent';
 import NavbarComponent from './components/NavbarComponent';
 import FooterComponent from './components/FooterComponent';
 import AdminDashboard from './components/AdminDashboard';
+import BookingForm from './components/BookingForm'; // Importa el componente
 
 const App = () => {
   const location = useLocation(); // Obtiene la ruta actual
@@ -13,15 +14,16 @@ const App = () => {
     <>
       {/* Solo muestra el Navbar y Footer si la ruta no es "/admin" */}
       {location.pathname !== '/admin' && <NavbarComponent />}
-      
+
       <Routes>
         <Route path="/" element={<HomeSection />} />
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/register" element={<RegisterComponent />} />
-        <Route path="/admin" element={<AdminDashboard />} /> 
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/booking" element={<BookingForm />} /> {/* Ruta de reserva */}
         <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
-      
+
       {location.pathname !== '/admin' && <FooterComponent />}
     </>
   );

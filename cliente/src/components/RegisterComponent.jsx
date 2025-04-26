@@ -1,3 +1,4 @@
+// src/components/RegisterComponent.jsx
 import React, { useState } from 'react';
 import '../styles/RegisterComponent.css';
 
@@ -42,14 +43,16 @@ const RegisterComponent = ({ onRegisterSuccess, onSwitchToLogin }) => {
       setTimeout(() => {
         setIsLoading(false);
         setSuccessMessage('¡Registro exitoso! Redirigiendo...');
-        setTimeout(() => onRegisterSuccess(), 1500);
+        setTimeout(() => {
+          onRegisterSuccess(); // Llamamos a la función onRegisterSuccess cuando el registro sea exitoso
+        }, 1500);
       }, 2000);
     }
   };
 
   return (
     <div className="full-page-container">
-          <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
             Únete a <span className="text-red-600">Pasión</span> y <span className="text-blue-600">Estilo</span>

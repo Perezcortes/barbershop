@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/HomeSection.css'; // Asegúrate de que el archivo esté en la misma carpeta
 
 const HomeSection = () => {
-  return (  
+  return (
     <section className="hero-section">
       <div className="overlay"></div>
       <div className="video-background">

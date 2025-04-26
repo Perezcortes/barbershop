@@ -1,28 +1,29 @@
-// src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginComponent from './components/LoginComponent';
-import RegisterComponent from './components/RegisterComponent'; // Importar el nuevo componente de registro
+import { Routes, Route, useLocation } from 'react-router-dom';
 import HomeSection from './components/HomeSection';
+import RegisterComponent from './components/RegisterComponent';
+import LoginComponent from './components/LoginComponent';
 import NavbarComponent from './components/NavbarComponent';
 import FooterComponent from './components/FooterComponent';
+import AdminDashboard from './components/AdminDashboard';
 
 const App = () => {
-  // Función para manejar el clic en el botón "INGRESAR"
-  const handleAdminClick = () => {
-    console.log('Botón INGRESAR clickeado');
-  };
+  const location = useLocation(); // Obtiene la ruta actual
 
   return (
-    <Router>
-      <NavbarComponent onAdminClick={handleAdminClick} />
+    <>
+      {/* Solo muestra el Navbar y Footer si la ruta no es "/admin" */}
+      {location.pathname !== '/admin' && <NavbarComponent />}
+      
       <Routes>
         <Route path="/" element={<HomeSection />} />
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/register" element={<RegisterComponent />} />
+        <Route path="/admin" element={<AdminDashboard />} /> 
+        <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
-      <FooterComponent />
-    </Router>
+      
+      {location.pathname !== '/admin' && <FooterComponent />}
+    </>
   );
 };
 

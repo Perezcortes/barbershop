@@ -1,125 +1,271 @@
-.hero-section {
+:root {
+  --home-primary: #D4AF37;
+  --home-primary-dark: #B38B2D;
+  --home-dark: #1A1A1A;
+  --home-light: #FFFFFF;
+  --home-light-gray: #F5F5F5;
+  --home-dark-gray: #333333;
+  --home-overlay: rgba(0, 0, 0, 0.6);
+  --home-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --home-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --home-border-radius: 8px;
+}
+
+/* Reset y estilos base */
+.home-hero-section {
   position: relative;
   height: 100vh;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1a1a1a;
   overflow: hidden;
+  color: var(--home-light);
 }
 
-.overlay {
+.home-video-background {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.video-background {
-  position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
 }
 
-.video {
+.home-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
-.content {
+.home-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--home-overlay);
+  z-index: 1;
+}
+
+.home-content {
   position: relative;
   z-index: 2;
-  text-align: center;
-  color: white;
-  padding: 0 1rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
 }
 
-.content h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.content p {
-  font-size: 1.2rem;
+.home-text-content {
+  max-width: 600px;
   margin-bottom: 2rem;
-  color: #d1d1d1;
+  animation: home-fadeInUp 0.8s ease-out;
 }
 
-.content button {
-  background: black;
-  color: white;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  border: none;
+.home-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.home-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: 2.5rem;
+  color: var(--home-light-gray);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+}
+
+/* Contenedor de botones */
+.home-cta-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Estilos específicos para el botón "Reservar Ahora" */
+.home-cta-button.home-primary-btn {
+  all: unset;
+  box-sizing: border-box;
+  background: var(--home-primary);
+  color: var(--home-dark);
+  padding: 12px 24px;
+  border-radius: var(--home-border-radius);
   font-size: 1rem;
+  font-weight: 600;
+  min-width: 180px;
+  height: 48px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--home-transition);
+  box-shadow: var(--home-shadow);
 }
 
-.content button:hover {
-  background: #333;
+.home-cta-button.home-primary-btn:hover {
+  background: var(--home-primary-dark);
+  transform: translateY(-2px);
 }
 
-/* Media Queries para hacer el diseño responsive */
+.home-button-icon {
+  transition: var(--home-transition);
+}
 
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-  .hero-section {
-    height: 80vh; /* Reducir la altura en pantallas pequeñas */
+.home-cta-button.home-primary-btn:hover .home-button-icon {
+  transform: translateX(3px);
+}
+
+/* Botón secundario */
+.home-secondary-button {
+  padding: 12px 24px;
+  border-radius: var(--home-border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--home-transition);
+  background: transparent;
+  color: var(--home-light);
+  border: 2px solid var(--home-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+}
+
+.home-secondary-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Sección de social proof */
+.home-social-proof {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: var(--home-border-radius);
+  backdrop-filter: blur(5px);
+  animation: home-fadeIn 1s ease-out 0.3s both;
+}
+
+.home-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-stars {
+  color: var(--home-primary);
+  font-size: 1.2rem;
+}
+
+.home-trust-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--home-light-gray);
+}
+
+/* Animaciones */
+@keyframes home-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .content h1 {
-    font-size: 1.8rem; /* Reducir el tamaño del texto */
-  }
-
-  .content p {
-    font-size: 1rem; /* Reducir el tamaño del párrafo */
-  }
-
-  .content button {
-    padding: 0.6rem 1.5rem; /* Ajustar el tamaño del botón */
-    font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Pantallas medianas (tabletas) */
+@keyframes home-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .hero-section {
-    height: 90vh; /* Ajustar la altura */
+  .home-content {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .home-subtitle {
+    max-width: 100%;
+  }
+  
+  .home-cta-container {
+    justify-content: center;
+  }
+  
+  .home-social-proof {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .home-trust-badges {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .content h1 {
-    font-size: 2rem; /* Ajustar el tamaño del título */
-  }
-
-  .content p {
-    font-size: 1.1rem; /* Ajustar el tamaño del párrafo */
-  }
-
-  .content button {
-    padding: 0.7rem 1.8rem; /* Ajustar el tamaño del botón */
-    font-size: 0.95rem; /* Ajustar la fuente */
+  /* Ajustes para botones en tablet */
+  .home-cta-button.home-primary-btn,
+  .home-secondary-button {
+    padding: 10px 20px;
+    height: 44px;
+    min-width: 160px;
   }
 }
 
-/* Pantallas grandes (escritorios) */
-@media (min-width: 1024px) {
-  .hero-section {
-    height: 100vh; /* Asegurarse de que la altura se mantenga en pantallas grandes */
+@media (max-width: 480px) {
+  .home-hero-section {
+    min-height: 500px;
   }
-
-  .content h1 {
-    font-size: 2.5rem; /* Título más grande */
+  
+  .home-title {
+    margin-bottom: 1rem;
   }
-
-  .content p {
-    font-size: 1.2rem; /* Párrafo más grande */
+  
+  .home-subtitle {
+    margin-bottom: 1.5rem;
   }
-
-  .content button {
-    padding: 0.75rem 2rem; /* Botón más grande */
-    font-size: 1rem; /* Fuente de tamaño normal */
+  
+  /* Ajustes para botones en móvil */
+  .home-cta-button.home-primary-btn,
+  .home-secondary-button {
+    padding: 8px 16px;
+    height: 40px;
+    min-width: 140px;
+    font-size: 0.9rem;
+  }
+  
+  .home-social-proof {
+    position: static;
+    margin-top: 2rem;
+    background: transparent;
+    backdrop-filter: none;
+    gap: 1rem;
   }
 }
